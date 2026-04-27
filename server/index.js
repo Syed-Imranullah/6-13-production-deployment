@@ -1,6 +1,7 @@
 // ====================================
 // Imports / Constants
 // ====================================
+require('dotenv').config()
 
 // ✍️ TODO 1: Import dotenv and invoke config()
 
@@ -33,7 +34,7 @@ app.use(logRoutes);
 // ✍️ TODO 3: Replace hard-coded secret with `process.env.SESSION_SECRET`
 app.use(cookieSession({
   name: 'session',
-  secret: 'dev-only-secret-replace-before-deploying',
+  secret: process.env.SESSION_SECRET,
   maxAge: 24 * 60 * 60 * 1000,
 }));
 app.use(express.json());
